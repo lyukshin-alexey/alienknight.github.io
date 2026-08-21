@@ -1,0 +1,143 @@
+/* Базовые настройки */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+}
+
+/* Наша безопасная зона */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+
+/* 1. Главный экран (Hero) */
+.hero {
+    /* Фон тянется на все 1920px (или шире) */
+    background-image: url('img/juicy-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 800px; /* Примерная высота по макету */
+    display: flex;
+    align-items: flex-end; /* Прижимаем контент книзу */
+    padding-bottom: 80px;
+}
+
+.hero-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Кнопка по центру */
+}
+
+.steam-button {
+    background-color: #21ff00; /* Ярко-зеленый из макета */
+    color: #000;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 50px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.steam-button:hover {
+    transform: scale(1.05);
+}
+
+/* 2. О студии (About Us) */
+.about {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Белая шапка блока */
+.about-header {
+    background-color: #ffffff;
+    padding: 20px 0;
+}
+
+.about-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px; /* Расстояние между лого и текстом */
+}
+
+.about-logo {
+    height: 80px; /* Подгонишь под размер своего PNG */
+}
+
+.about-header-content h2 {
+    font-size: 32px;
+    margin: 0;
+    color: #111;
+}
+
+/* Оранжевая плашка команды */
+.about-team {
+    background-color: #ff9800; /* Оранжевый из макета */
+    padding: 60px 0;
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.team-member {
+    text-align: center;
+    color: #000;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.team-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    max-width: 400px;
+}
+
+/* 3. Блок Turbo Dudes */
+.turbo-dudes {
+    background-color: #ffffff;
+    padding: 0;
+    text-align: center;
+}
+
+.turbo-banner {
+    width: 100%;
+    max-width: 1200px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 4. Подвал (Dorf's Big Drop) */
+.dorf-footer {
+    background-image: url('img/dorf-bg.jpg');
+    background-size: cover;
+    background-position: top center;
+    height: 500px; /* Высота подвала */
+    position: relative;
+}
