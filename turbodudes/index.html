@@ -10,28 +10,41 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     
     <style>
+      /* Новый CSS для жесткой фиксации пропорций (Letterboxing) */
       body, html {
         padding: 0;
         margin: 0;
         width: 100vw;
-        height: 100dvh; /* Динамическая высота для обхода панелей браузера */
+        height: 100dvh;
         overflow: hidden; 
         background-color: #000; 
+        display: flex; /* Выравниваем игру строго по центру */
+        justify-content: center;
+        align-items: center;
       }
       
       #unity-container {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       
       #unity-canvas {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Игра строго вписывается в экран, сохраняя пропорции */
+        /* Запрещаем игре вылезать за пределы экрана */
+        max-width: 100%;
+        max-height: 100%;
+        /* Жестко фиксируем твои родные пропорции! */
+        aspect-ratio: 1080 / 2400; 
+        object-fit: contain;
+      }
+      
+      #unity-loading-bar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
       
       /* Прячем дефолтный футер Unity */
@@ -75,12 +88,12 @@
       }
 
       var buildUrl = "Build";
-      // Версия ?v=6 стоит в самом конце каждого файла сборки
-      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=6";
+      // Обновили версию до v=7
+      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=7";
       var config = {
-        dataUrl: buildUrl + "/turbodudes.data.unityweb?v=6",
-        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb?v=6",
-        codeUrl: buildUrl + "/turbodudes.wasm.unityweb?v=6",
+        dataUrl: buildUrl + "/turbodudes.data.unityweb?v=7",
+        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb?v=7",
+        codeUrl: buildUrl + "/turbodudes.wasm.unityweb?v=7",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Alien Knight",
         productName: "Turbo Dudes",
