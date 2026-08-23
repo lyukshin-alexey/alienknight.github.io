@@ -74,13 +74,13 @@
         updateBannerVisibility();
       }
 
-      // Добавили версию к папке сборки, чтобы победить кэш браузера
-      var buildUrl = "Build?v=5";
-      var loaderUrl = buildUrl + "/turbodudes.loader.js";
+      var buildUrl = "Build";
+      // Версия ?v=6 стоит в самом конце каждого файла сборки
+      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=6";
       var config = {
-        dataUrl: buildUrl + "/turbodudes.data.unityweb",
-        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb",
-        codeUrl: buildUrl + "/turbodudes.wasm.unityweb",
+        dataUrl: buildUrl + "/turbodudes.data.unityweb?v=6",
+        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb?v=6",
+        codeUrl: buildUrl + "/turbodudes.wasm.unityweb?v=6",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Alien Knight",
         productName: "Turbo Dudes",
