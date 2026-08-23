@@ -14,7 +14,7 @@
         padding: 0;
         margin: 0;
         width: 100vw;
-        height: 100dvh; /* Наша динамическая высота */
+        height: 100dvh; /* Динамическая высота для обхода панелей браузера */
         overflow: hidden; 
         background-color: #000; 
       }
@@ -31,7 +31,7 @@
       #unity-canvas {
         width: 100%;
         height: 100%;
-        object-fit: contain; 
+        object-fit: contain; /* Игра строго вписывается в экран, сохраняя пропорции */
       }
       
       /* Прячем дефолтный футер Unity */
@@ -74,7 +74,8 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
+      // Добавили версию к папке сборки, чтобы победить кэш браузера
+      var buildUrl = "Build?v=5";
       var loaderUrl = buildUrl + "/turbodudes.loader.js";
       var config = {
         dataUrl: buildUrl + "/turbodudes.data.unityweb",
