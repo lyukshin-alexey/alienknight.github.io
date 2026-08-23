@@ -13,7 +13,6 @@ body, html {
     background-color: #ffffff;
 }
 
-/* Наша безопасная зона */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -23,24 +22,23 @@ body, html {
 
 /* 1. Главный экран (Hero) */
 .hero {
-    /* Фон тянется на все 1920px (или шире) */
     background-image: url('img/juicy-bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 800px; /* Примерная высота по макету */
+    height: 800px; 
     display: flex;
-    align-items: flex-end; /* Прижимаем контент книзу */
+    align-items: flex-end; 
     padding-bottom: 80px;
 }
 
 .hero-container {
     width: 100%;
     display: flex;
-    justify-content: center; /* Кнопка по центру */
+    justify-content: center; 
 }
 
 .steam-button {
-    background-color: #21ff00; /* Ярко-зеленый из макета */
+    background-color: #21ff00; 
     color: #000;
     font-size: 28px;
     font-weight: 900;
@@ -62,7 +60,6 @@ body, html {
     flex-direction: column;
 }
 
-/* Белая шапка блока */
 .about-header {
     background-color: #ffffff;
     padding: 20px 0;
@@ -72,11 +69,11 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 150px; /* Расстояние между лого и текстом */
+    gap: 150px; 
 }
 
 .about-logo {
-    height: 80px; /* Подгонишь под размер своего PNG */
+    height: 80px; 
 }
 
 .about-header-content h2 {
@@ -85,9 +82,8 @@ body, html {
     color: #111;
 }
 
-/* Оранжевая плашка команды */
 .about-team {
-    background-color: #ff9800; /* Оранжевый из макета */
+    background-color: #ff9800; 
     padding: 60px 0;
 }
 
@@ -140,34 +136,44 @@ body, html {
     margin: 0 auto;
 }
 
-.iframe-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* Стили для новой кнопки Play */
+.play-button {
+    background-color: #ff9800;
+    color: #000;
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    display: inline-block;
 }
 
-/* 4. Подвал (Dorf's Big Drop) */
+.play-button:hover {
+    transform: scale(1.05);
+}
+
+/* 4. Подвал */
 .dorf-footer {
     background-image: url('img/dorf-bg.jpg');
     background-size: cover;
     background-position: top center;
-    height: 500px; /* Высота подвала */
+    height: 500px; 
     position: relative;
 }
     </style>
 </head>
 <body>
 
-    <!-- Главный экран - Juicy World -->
     <section class="hero">
         <div class="container hero-container">
-            <!-- Кнопка Steam выровнена по макету (внизу экрана) -->
             <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-button">Wishlist on Steam</a>
         </div>
     </section>
 
-    <!-- О студии -->
     <section class="about">
-        <!-- Белая часть с логотипом -->
         <div class="about-header">
             <div class="container about-header-content">
                 <img src="img/logo-small.png" alt="Alien Knight Logo" class="about-logo">
@@ -175,7 +181,6 @@ body, html {
             </div>
         </div>
         
-        <!-- Оранжевая часть с командой -->
         <div class="about-team">
             <div class="container team-container">
                 <div class="team-member">
@@ -195,20 +200,21 @@ body, html {
         </div>
     </section>
 
-    <!-- Блок Turbo Dudes -->
+    <!-- Измененный блок Turbo Dudes -->
     <section class="turbo-dudes">
         <div class="container">
             <img src="img/turbo-dudes.jpg" alt="Turbo Dudes" class="turbo-banner">
-            <div class="iframe-container">
-                <iframe src="turbodudes/index.html" width="960" height="600" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            
+            <!-- Вместо iframe теперь отступ и красивая кнопка -->
+            <div style="margin: 40px 0 80px 0;">
+                <a href="/turbodudes/" class="play-button">Play Turbo Dudes</a>
             </div>
+
         </div>
     </section>
 
-    <!-- Подвал / Dorf's Big Drop -->
     <section class="dorf-footer">
         <div class="container footer-content">
-            <!-- Сюда потом можно добавить контакты поверх фона -->
         </div>
     </section>
 
