@@ -4,70 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alien Knight Studio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+/* Базовые настройки */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+}
+
+/* Наша безопасная зона */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+
+/* 1. Главный экран (Hero) */
+.hero {
+    /* Фон тянется на все 1920px (или шире) */
+    background-image: url('img/juicy-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 800px; /* Примерная высота по макету */
+    display: flex;
+    align-items: flex-end; /* Прижимаем контент книзу */
+    padding-bottom: 80px;
+}
+
+.hero-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Кнопка по центру */
+}
+
+.steam-button {
+    background-color: #21ff00; /* Ярко-зеленый из макета */
+    color: #000;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 50px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.steam-button:hover {
+    transform: scale(1.05);
+}
+
+/* 2. О студии (About Us) */
+.about {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Белая шапка блока */
+.about-header {
+    background-color: #ffffff;
+    padding: 20px 0;
+}
+
+.about-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px; /* Расстояние между лого и текстом */
+}
+
+.about-logo {
+    height: 80px; /* Подгонишь под размер своего PNG */
+}
+
+.about-header-content h2 {
+    font-size: 32px;
+    margin: 0;
+    color: #111;
+}
+
+/* Оранжевая плашка команды */
+.about-team {
+    background-color: #ff9800; /* Оранжевый из макета */
+    padding: 60px 0;
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.team-member {
+    text-align: center;
+    color: #000;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.team-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    max-width: 400px;
+}
+
+/* 3. Блок Turbo Dudes */
+.turbo-dudes {
+    background-color: #ffffff;
+    padding: 0;
+    text-align: center;
+}
+
+.turbo-banner {
+    width: 100%;
+    max-width: 1200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.iframe-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 4. Подвал (Dorf's Big Drop) */
+.dorf-footer {
+    background-image: url('img/dorf-bg.jpg');
+    background-size: cover;
+    background-position: top center;
+    height: 500px; /* Высота подвала */
+    position: relative;
+}
+    </style>
 </head>
 <body>
 
-    <!-- Навигация -->
-    <header class="navbar">
-        <div class="container">
-            <h1 class="logo">Alien Knight</h1>
-            <!-- Позже заменим текст на картинку логотипа -->
-        </div>
-    </header>
-
-    <!-- Главный экран (Hero) - Juicy World -->
+    <!-- Главный экран - Juicy World -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Juicy World</h2>
-                <p>Красочный 3D-экшен про кролика и овощи-мутанты!</p>
-                <!-- Ссылка на Steam (App ID 4945340) -->
-                <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-button">Wishlist on Steam</a>
-            </div>
+        <div class="container hero-container">
+            <!-- Кнопка Steam выровнена по макету (внизу экрана) -->
+            <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-button">Wishlist on Steam</a>
         </div>
     </section>
 
     <!-- О студии -->
     <section class="about">
-        <div class="container">
-            <h2>О студии</h2>
-            <p>Мы — независимая команда разработчиков, создающая яркие и динамичные игры, полные веселья.</p>
+        <!-- Белая часть с логотипом -->
+        <div class="about-header">
+            <div class="container about-header-content">
+                <img src="img/logo-small.png" alt="Alien Knight Logo" class="about-logo">
+                <h2>About US</h2>
+            </div>
         </div>
-    </section>
+        
+        <!-- Оранжевая часть с командой -->
+        <div class="about-team">
+            <div class="container team-container">
+                <div class="team-member">
+                    <img src="img/luke.png" alt="Luke" class="avatar">
+                    <h3>Luke</h3>
+                </div>
+                
+                <div class="team-text">
+                    <p>Люк отвечает за визуал, геймплей и душу. Роберт пишет код, генерирует идеи и работает за электричество.</p>
+                </div>
 
-    <!-- Блок с веб-сборкой Turbo Dudes -->
-    <section class="web-game">
-        <div class="container">
-            <h2>Сыграть прямо сейчас</h2>
-            <div class="game-container">
-                <!-- Сюда потом вставим iframe с Turbo Dudes -->
-                <p>Здесь будет окно с игрой Turbo Dudes</p>
+                <div class="team-member">
+                    <img src="img/robert.png" alt="Robert" class="avatar">
+                    <h3>Robert</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Архив / В планах - Dorf's Big Drop -->
-    <section class="upcoming">
+    <!-- Блок Turbo Dudes -->
+    <section class="turbo-dudes">
         <div class="container">
-            <h2>В планах: Dorf's Big Drop</h2>
-            <div class="dorf-card">
-                <p>Наш будущий 2.5D проект. Гном, кирка и много веселья!</p>
+            <img src="img/turbo-dudes.jpg" alt="Turbo Dudes" class="turbo-banner">
+            <div class="iframe-container">
+                <iframe src="turbodudes/index.html" width="960" height="600" frameborder="0" scrolling="no" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Подвал (Footer) -->
-    <footer class="footer">
-        <div class="container">
-            <a href="mailto:hello@alienknight.com">hello@alienknight.com</a>
-            <div class="socials">
-                <a href="#">YouTube</a>
-                <a href="#">X (Twitter)</a>
-                <a href="#">Press Kit</a>
-            </div>
+    <!-- Подвал / Dorf's Big Drop -->
+    <section class="dorf-footer">
+        <div class="container footer-content">
+            <!-- Сюда потом можно добавить контакты поверх фона -->
         </div>
-    </footer>
+    </section>
 
 </body>
 </html>
