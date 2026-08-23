@@ -3,21 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Тот самый правильный мета-тег для мобилок (запрещает зум пальцами и учитывает вырезы камер) -->
+    <!-- Мета-тег для мобилок (запрещает зум пальцами и учитывает вырезы камер) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Turbo Dudes</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     
     <style>
-      /* Наши спасительные стили для мобильных браузеров */
       body, html {
         padding: 0;
         margin: 0;
         width: 100vw;
-        height: 100dvh; /* 100dvh — Динамическая высота для обхода панелей Safari/Chrome */
-        overflow: hidden; /* Жестко убираем скролл страницы */
-        background-color: #000; /* Черный фон вокруг игры */
+        height: 100dvh; /* Наша динамическая высота */
+        overflow: hidden; 
+        background-color: #000; 
       }
       
       #unity-container {
@@ -32,10 +31,10 @@
       #unity-canvas {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* Игра всегда целиком влезает в экран, строго сохраняя пропорции 540x1200 */
+        object-fit: contain; 
       }
       
-      /* Прячем дефолтный футер Unity (кнопку фуллскрина и логотип), он на телефонах ломает верстку */
+      /* Прячем дефолтный футер Unity */
       #unity-footer { display: none !important; }
     </style>
   </head>
