@@ -1,143 +1,288 @@
-/* Базовые настройки */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffffff;
+/* Сброс базовых отступов браузера */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Наша безопасная зона */
+body {
+  background-color: #1f476a; 
+  font-family: 'Russo One', sans-serif;
+  position: relative;
+}
+
+/* ================= СЛОЙ ФОНОВ ================= */
+.bg-layer {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  z-index: 1;
+}
+
+.top-stripe-1 {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 16px;
+  background: linear-gradient(to right, #1f476a, #457095, #1f476a);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 16px; left: 0; width: 100%; height: 1040px; 
+  background: url('img/hero-bg.jpg') center top no-repeat;
+  background-size: cover; 
+}
+
+.top-stripe-2 {
+  position: absolute;
+  top: 1056px; left: 0; width: 100%; height: 16px;
+  background: linear-gradient(to right, #1f476a, #457095, #1f476a);
+}
+
+.who-we-are-bg {
+  position: absolute;
+  top: 1072px; left: 0; width: 100%; height: 520px;
+  background-color: #ffa828; 
+}
+
+.top-stripe-3 {
+  position: absolute;
+  top: 1592px; left: 0; width: 100%; height: 16px;
+  background: linear-gradient(to right, #1f476a, #457095, #1f476a);
+}
+
+.turbodudes-bg {
+  position: absolute;
+  top: 1608px; left: 0; width: 100%; height: 520px;
+  background-color: #8428ff; 
+}
+
+.top-stripe-4 {
+  position: absolute;
+  top: 2128px; left: 0; width: 100%; height: 16px;
+  background: linear-gradient(to right, #1f476a, #457095, #1f476a);
+}
+
+.dorfs-bg {
+  position: absolute;
+  top: 2144px; left: 0; width: 100%; height: 520px;
+  background-color: #ff8428; 
+}
+
+.top-stripe-5 {
+  position: absolute;
+  top: 2664px; left: 0; width: 100%; height: 16px;
+  background: linear-gradient(to right, #1f476a, #457095, #1f476a);
+}
+
+.footer-bg {
+  position: absolute;
+  top: 2680px; left: 0; width: 100%; height: 160px;
+  background-color: #1f476a; 
+}
+
+
+/* ================= СЛОЙ КОНТЕНТА ================= */
+.content-layer {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  z-index: 10;
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    height: 100%;
+  max-width: 1200px;
+  height: 3000px; 
+  margin: 0 auto; 
+  position: relative; 
 }
 
-/* 1. Главный экран (Hero) */
-.hero {
-    /* Фон тянется на все 1920px (или шире) */
-    background-image: url('img/juicy-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 800px; /* Примерная высота по макету */
-    display: flex;
-    align-items: flex-end; /* Прижимаем контент книзу */
-    padding-bottom: 80px;
+
+/* --- Элементы первого экрана --- */
+.logo-shield {
+  position: absolute;
+  top: 0; left: 40px; z-index: 20; 
 }
 
-.hero-container {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Кнопка по центру */
+.panel {
+  position: absolute;
+  top: 655px; left: 50%; transform: translateX(-50%); 
+  background: url('img/panel-bg.png') center center no-repeat;
+  background-size: 100% 100%; 
+  width: 928px; height: 308px; 
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; 
+  padding-top: 28px; 
 }
 
-.steam-button {
-    background-color: #21ff00; /* Ярко-зеленый из макета */
-    color: #000;
-    font-size: 28px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 20px 50px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
+.panel-text {
+  width: 870px; font-size: 30px; line-height: 1.2; color: #ffffff; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: left; 
 }
 
-.steam-button:hover {
-    transform: scale(1.05);
+.steam-btn {
+  position: absolute;
+  top: 914px; left: 50%; transform: translateX(-50%); z-index: 15; 
+  display: flex; align-items: center; justify-content: center; text-decoration: none; 
+  transition: transform 0.2s ease; 
 }
 
-/* 2. О студии (About Us) */
-.about {
-    display: flex;
-    flex-direction: column;
+.btn-text {
+  position: absolute;
+  font-size: 46px; color: #ffffff;
+  text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.3); margin-bottom: 14px;
 }
 
-/* Белая шапка блока */
-.about-header {
-    background-color: #ffffff;
-    padding: 20px 0;
+.steam-btn:hover {
+  transform: translateX(-50%) scale(1.05);
 }
 
-.about-header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 150px; /* Расстояние между лого и текстом */
+
+/* --- Элементы Who We Are --- */
+.section-title {
+  position: absolute;
+  top: 1141px; left: 50%; transform: translate(-50%, -50%); 
+  font-size: 36px; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap; 
 }
 
-.about-logo {
-    height: 80px; /* Подгонишь под размер своего PNG */
+.panel-orange {
+  position: absolute;
+  top: 1178px; left: 50%; transform: translateX(-50%); 
+  background: url('img/panel-orange-bg.png') center center no-repeat;
+  background-size: 100% 100%; 
+  width: 928px; height: 308px; 
+  display: flex; align-items: flex-start; justify-content: flex-start; 
+  padding-left: 29px; padding-top: 28px; 
 }
 
-.about-header-content h2 {
-    font-size: 32px;
-    margin: 0;
-    color: #111;
+.panel-text-orange {
+  font-size: 30px; line-height: 1.2; color: #ffffff; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: left; 
 }
 
-/* Оранжевая плашка команды */
-.about-team {
-    background-color: #ff9800; /* Оранжевый из макета */
-    padding: 60px 0;
+.avatar-luke {
+  position: absolute;
+  top: 1112px; left: 994px; z-index: 5;
 }
 
-.team-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
+.avatar-robert {
+  position: absolute;
+  top: 1357px; left: 994px; z-index: 5;
 }
 
-.team-member {
-    text-align: center;
-    color: #000;
+
+/* --- Элементы Turbo Dudes --- */
+.section-title-multiline {
+  position: absolute;
+  top: 1666px; left: 50%; transform: translate(-50%, -50%); 
+  font-size: 36px; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center; white-space: nowrap; 
 }
 
-.avatar {
-    width: 150px;
-    height: 150px;
-    background-color: #fff;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
+.poster-turbodudes {
+  position: absolute;
+  top: 1600px; left: 15px; width: 330px; height: 501px; z-index: 20; 
 }
 
-.team-member h3 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 900;
+.panel-purple {
+  position: absolute;
+  top: 1752px; left: 234px; 
+  background: url('img/panel-purple-bg.png') center center no-repeat;
+  background-size: 100% 100%; 
+  width: 928px; height: 308px; 
+  display: flex; align-items: flex-start; justify-content: flex-start; 
+  padding-left: 138px; padding-top: 28px; 
 }
 
-.team-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    max-width: 400px;
+.panel-text-purple {
+  font-size: 30px; line-height: 1.2; color: #ffffff; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: left; 
 }
 
-/* 3. Блок Turbo Dudes */
-.turbo-dudes {
-    background-color: #ffffff;
-    padding: 0;
-    text-align: center;
+.play-btn {
+  position: absolute;
+  top: 2011px; left: 50%; transform: translateX(-50%); z-index: 15; 
+  display: flex; align-items: center; justify-content: center; text-decoration: none; 
+  transition: transform 0.2s ease; 
 }
 
-.turbo-banner {
-    width: 100%;
-    max-width: 1200px;
-    display: block;
-    margin: 0 auto;
+.play-btn:hover {
+  transform: translateX(-50%) scale(1.05);
 }
 
-/* 4. Подвал (Dorf's Big Drop) */
-.dorf-footer {
-    background-image: url('img/dorf-bg.jpg');
-    background-size: cover;
-    background-position: top center;
-    height: 500px; /* Высота подвала */
-    position: relative;
+
+/* --- Элементы Dorf's Big Drop --- */
+.poster-dorfs {
+  position: absolute;
+  top: 2128px; 
+  left: 38px;  
+  width: 308px; height: 509px; 
+  z-index: 20; 
+}
+
+.panel-dorfs {
+  position: absolute;
+  top: 2212px; 
+  left: 234px; 
+  background: url('img/panel-red-bg.png') center center no-repeat;
+  background-size: 100% 100%; 
+  width: 928px; height: 388px; 
+  display: flex; align-items: flex-start; justify-content: flex-start; 
+  padding-left: 138px; 
+  padding-top: 28px;   
+}
+
+.panel-text-dorfs {
+  font-size: 30px; 
+  line-height: 1.2; 
+  color: #ffffff; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  text-align: left; 
+}
+
+
+/* --- Подвал (Footer) --- */
+.footer-text {
+  position: absolute;
+  top: 2742px; 
+  left: 40px; 
+  transform: translateY(-50%); 
+  font-size: 18px; 
+  line-height: 1.3;
+  color: #ffffff; 
+  font-family: 'Russo One', sans-serif; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.footer-icon-steam {
+  position: absolute;
+  top: 2709px;
+  left: 991px;
+  z-index: 20;
+}
+
+.footer-icon-steam img {
+  width: 66px;
+  height: 65px;
+  transition: opacity 0.2s;
+}
+
+.footer-icon-steam img:hover {
+  opacity: 0.8;
+}
+
+.footer-icon-mail {
+  position: absolute;
+  top: 2716px;
+  left: 1087px;
+  z-index: 20;
+}
+
+.footer-icon-mail img {
+  width: 71px;
+  height: 52px;
+  transition: opacity 0.2s;
+}
+
+.footer-icon-mail img:hover {
+  opacity: 0.8;
 }

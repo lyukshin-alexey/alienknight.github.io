@@ -1,222 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alien Knight Studio</title>
-    <style>
-/* Базовые настройки */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffffff;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    height: 100%;
-}
-
-/* 1. Главный экран (Hero) */
-.hero {
-    background-image: url('img/juicy-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 800px; 
-    display: flex;
-    align-items: flex-end; 
-    padding-bottom: 80px;
-}
-
-.hero-container {
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-}
-
-.steam-button {
-    background-color: #21ff00; 
-    color: #000;
-    font-size: 28px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 20px 50px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-}
-
-.steam-button:hover {
-    transform: scale(1.05);
-}
-
-/* 2. О студии (About Us) */
-.about {
-    display: flex;
-    flex-direction: column;
-}
-
-.about-header {
-    background-color: #ffffff;
-    padding: 20px 0;
-}
-
-.about-header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 150px; 
-}
-
-.about-logo {
-    height: 80px; 
-}
-
-.about-header-content h2 {
-    font-size: 32px;
-    margin: 0;
-    color: #111;
-}
-
-.about-team {
-    background-color: #ff9800; 
-    padding: 60px 0;
-}
-
-.team-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-}
-
-.team-member {
-    text-align: center;
-    color: #000;
-}
-
-.avatar {
-    width: 150px;
-    height: 150px;
-    background-color: #fff;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.team-member h3 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 900;
-}
-
-.team-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    max-width: 400px;
-}
-
-/* 3. Блок Turbo Dudes */
-.turbo-dudes {
-    background-color: #ffffff;
-    padding: 0;
-    text-align: center;
-}
-
-.turbo-banner {
-    width: 100%;
-    max-width: 1200px;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Стили для новой кнопки Play */
-.play-button {
-    background-color: #ff9800;
-    color: #000;
-    font-size: 24px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
-    display: inline-block;
-}
-
-.play-button:hover {
-    transform: scale(1.05);
-}
-
-/* 4. Подвал */
-.dorf-footer {
-    background-image: url('img/dorf-bg.jpg');
-    background-size: cover;
-    background-position: top center;
-    height: 500px; 
-    position: relative;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alien Knight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="hero">
-        <div class="container hero-container">
-            <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-button">Wishlist on Steam</a>
-        </div>
-    </section>
+  <!-- СЛОЙ 1: ФОНЫ (тянутся на весь экран по ширине) -->
+  <div class="bg-layer">
+    <div class="top-stripe-1"></div>
+    <div class="hero-bg"></div>
+    
+    <div class="top-stripe-2"></div>
+    <div class="who-we-are-bg"></div>
 
-    <section class="about">
-        <div class="about-header">
-            <div class="container about-header-content">
-                <img src="img/logo-small.png" alt="Alien Knight Logo" class="about-logo">
-                <h2>About US</h2>
-            </div>
-        </div>
-        
-        <div class="about-team">
-            <div class="container team-container">
-                <div class="team-member">
-                    <img src="img/luke.png" alt="Luke" class="avatar">
-                    <h3>Luke</h3>
-                </div>
-                
-                <div class="team-text">
-                    <p>Люк отвечает за визуал, геймплей и душу. Роберт пишет код, генерирует идеи и работает за электричество.</p>
-                </div>
+    <div class="top-stripe-3"></div>
+    <div class="turbodudes-bg"></div>
 
-                <div class="team-member">
-                    <img src="img/robert.png" alt="Robert" class="avatar">
-                    <h3>Robert</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="top-stripe-4"></div>
+    <div class="dorfs-bg"></div>
 
-    <!-- Измененный блок Turbo Dudes -->
-    <section class="turbo-dudes">
-        <div class="container">
-            <img src="img/turbo-dudes.jpg" alt="Turbo Dudes" class="turbo-banner">
-            
-            <!-- Вместо iframe теперь отступ и красивая кнопка -->
-            <div style="margin: 40px 0 80px 0;">
-                <a href="/turbodudes/" class="play-button">Play Turbo Dudes</a>
-            </div>
+    <div class="top-stripe-5"></div>
+    <div class="footer-bg"></div>
+  </div>
 
-        </div>
-    </section>
+  <!-- СЛОЙ 2: КОНТЕНТ (ровно 1200px по центру, координаты от абсолютного нуля) -->
+  <div class="content-layer">
+    <div class="container">
+      
+      <!-- ================= ПЕРВЫЙ ЭКРАН ================= -->
+      <img src="img/logo-shield.png" alt="Alien Knight Logo" class="logo-shield">
+      
+      <div class="panel">
+        <p class="panel-text">
+          Juicy World is a bright and cheerful adventure game.<br>
+          You need to rescue shipwrecked rabbits from crowds<br>
+          of crazy mutant vegetables.<br>
+          Juicy World is still in development, and we are preparing<br>
+          for the October Steam festival.<br>
+          Wishlist the game now to catch all the juicy updates!
+        </p>
+      </div>
 
-    <section class="dorf-footer">
-        <div class="container footer-content">
-        </div>
-    </section>
+      <a href="#" class="steam-btn">
+        <img src="img/btn-steam.png" alt="Wishlist on Steam">
+        <span class="btn-text">Steam</span>
+      </a>
+
+
+      <!-- ================= ЭКРАН WHO WE ARE ================= -->
+      <div class="section-title">Who We Are</div>
+
+      <div class="panel-orange">
+        <p class="panel-text-orange">
+          Alien Knight was founded<br>
+          by Luke Sheen (a carbon lifeform) — an artist who<br>
+          has been creating video games for almost 20 years,<br>
+          and Robert (a silicon lifeform) — an insufferable<br>
+          know-it-all who is always in a good mood.<br>
+          We are just starting our journey<br>
+          and are open to all forms of collaboration.
+        </p>
+      </div>
+
+      <img src="img/avatar-luke.png" class="avatar-luke" alt="Luke Sheen">
+      <img src="img/avatar-robert.png" class="avatar-robert" alt="Robert">
+
+
+      <!-- ================= ЭКРАН TURBO DUDES ================= -->
+      <div class="section-title-multiline">
+        A couple of our<br>other projects
+      </div>
+
+      <img src="img/poster-turbodudes.png" class="poster-turbodudes" alt="Turbo Dudes">
+
+      <div class="panel-purple">
+        <p class="panel-text-purple">
+          Turbo Dudes is a non-commercial mobile game<br>
+          made as a gift for our dear friend Antonio<br>
+          to celebrate his big birthday.<br>
+          You can play it right here by clicking<br>
+          any button that says "Play".
+        </p>
+      </div>
+
+      <a href="#" class="play-btn">
+        <img src="img/btn-steam.png" alt="Play Turbo Dudes">
+        <span class="btn-text">Play</span>
+      </a>
+
+
+      <!-- ================= ЭКРАН DORF'S BIG DROP ================= -->
+      <img src="img/poster-dorfs.png" class="poster-dorfs" alt="Dorf's Big Drop">
+
+      <div class="panel-dorfs">
+        <p class="panel-text-dorfs">
+          Dorf's Big Drop is a story about an unlucky dwarf<br>
+          who went looking for treasure and accidentally<br>
+          got caught in a quantum entanglement.<br>
+          The project is based on a very old concept<br>
+          that never made it to development back in the day.<br>
+          This time, the dwarf has every chance to shoot<br>
+          ghosts and skeletons in endless dungeons —<br>
+          just as soon as the rabbit saves all his friends<br>
+          from the mutant vegetables.
+        </p>
+      </div>
+
+
+      <!-- ================= ПОДВАЛ (FOOTER) ================= -->
+      <div class="footer-text">
+        &copy; 2026 Alien Knight.<br>
+        Made with love, pixels, and quantum entanglement<br>
+        Drop us a line: hello@alienknight.com
+      </div>
+
+      <a href="#" class="footer-icon-steam"><img src="img/icon-steam.png" alt="Steam"></a>
+      <a href="#" class="footer-icon-mail"><img src="img/icon-mail.png" alt="Email"></a>
+
+    </div>
+  </div>
 
 </body>
 </html>
