@@ -40,14 +40,11 @@
         }
       }
 
-      /* ================= ПК (РИЛТАЙМ СКЕЙЛ) ================= */
+      /* ================= ПК (РИЛТАЙМ СКЕЙЛ 1080x2400) ================= */
       @media (min-width: 768px) {
         #unity-container {
-          /* Жестко привязываемся к высоте окна браузера */
           height: 100vh; 
-          /* Идеальные пропорции под оригинал 1080x2400 */
           width: calc(100vh * 1080 / 2400); 
-          /* Защита на случай, если кто-то сплющит окно по горизонтали */
           max-width: 100vw; 
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
         }
@@ -59,13 +56,15 @@
       <canvas id="unity-canvas"></canvas>
     </div>
     <script>
-      // Пути к файлам сборки
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=8";
+      // Сброс кэша оставляем ТОЛЬКО для самого загрузчика, чтобы он скачался свежим
+      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=9"; 
+      
+      // ВАЖНО: Никаких .unityweb и ?v=8 здесь! Unity сама всё подставит правильно.
       var config = {
-        dataUrl: buildUrl + "/turbodudes.data.unityweb?v=8",
-        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb?v=8",
-        codeUrl: buildUrl + "/turbodudes.wasm.unityweb?v=8",
+        dataUrl: buildUrl + "/turbodudes.data",
+        frameworkUrl: buildUrl + "/turbodudes.framework.js",
+        codeUrl: buildUrl + "/turbodudes.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Alien Knight",
         productName: "Turbo Dudes",
