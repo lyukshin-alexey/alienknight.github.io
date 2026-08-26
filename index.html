@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- ГЛОБАЛЬНЫЙ СКЕЙЛЕР ДЛЯ МОБИЛОК И ДЕСКТОПА -->
+  <!-- ГЛОБАЛЬНЫЙ КОНТЕЙНЕР -->
   <div class="page-scaler">
 
     <!-- СЛОЙ 1: ФОНЫ -->
@@ -48,7 +48,8 @@
           </p>
         </div>
 
-        <a href="#" class="steam-btn">
+        <!-- Боевая ссылка на Steam -->
+        <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-btn">
           <img src="img/btn-steam.png" alt="Wishlist on Steam">
           <span class="btn-text">Steam</span>
         </a>
@@ -90,6 +91,7 @@
           </p>
         </div>
 
+        <!-- Кнопка Play -->
         <a href="#" class="play-btn">
           <img src="img/btn-steam.png" alt="Play Turbo Dudes">
           <span class="btn-text">Play</span>
@@ -121,33 +123,14 @@
           Drop us a line: hello@alienknight.com
         </div>
 
-        <a href="#" class="footer-icon-steam"><img src="img/icon-steam.png" alt="Steam"></a>
-        <a href="#" class="footer-icon-mail"><img src="img/icon-mail.png" alt="Email"></a>
+        <!-- Боевые ссылки в подвале -->
+        <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="footer-icon-steam"><img src="img/icon-steam.png" alt="Steam"></a>
+        <a href="mailto:hello@alienknight.com" class="footer-icon-mail"><img src="img/icon-mail.png" alt="Email"></a>
 
       </div>
     </div>
 
   </div>
-
-  <!-- АДАПТИВНЫЙ СКРИПТ МАСШТАБИРОВАНИЯ -->
-  <script>
-    function scalePage() {
-      const scaler = document.querySelector('.page-scaler');
-      const windowWidth = window.innerWidth;
-      const baseWidth = 1200;
-      
-      if (windowWidth < baseWidth) {
-        const scale = windowWidth / baseWidth;
-        scaler.style.transform = `scale(${scale})`;
-        scaler.style.height = `${2840 * scale}px`; // Пропорциональное уменьшение высоты всей страницы
-      } else {
-        scaler.style.transform = 'none';
-        scaler.style.height = '2840px';
-      }
-    }
-    window.addEventListener('resize', scalePage);
-    window.addEventListener('DOMContentLoaded', scalePage);
-  </script>
 
 </body>
 </html>

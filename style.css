@@ -7,95 +7,96 @@
 
 html, body {
   width: 100%;
-  max-width: 100vw;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Убираем горизонтальный скролл на телефонах */
   background-color: #1f476a; 
   font-family: 'Russo One', sans-serif;
+  overflow-x: hidden; /* Скрываем возможный горизонтальный скролл */
 }
 
-/* Обертка-скалер для мобильных и десктопа */
 .page-scaler {
   position: relative;
   width: 1200px;
   height: 2840px;
-  transform-origin: top left;
   margin: 0 auto;
 }
 
-/* ================= СЛОЙ ФОНОВ ================= */
+/* ================= СЛОЙ ФОНОВ (РАСТЯНУТЫЙ) ================= */
 .bg-layer {
   position: absolute;
   top: 0; 
-  left: 0;
-  width: 1200px; 
+  left: 50%;
+  transform: translateX(-50%); /* Центрируем растянутый слой относительно экрана */
+  width: 100vw; /* Растягиваем на всю ширину любого монитора (1920px и шире) */
+  min-width: 1200px; /* Для телефонов не даем фону ужаться меньше контента */
   z-index: 1;
 }
 
+/* Все фоны теперь 100% от ширины экрана */
 .top-stripe-1 {
   position: absolute;
-  top: 0; left: 0; width: 1200px; height: 16px;
+  top: 0; left: 0; width: 100%; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .hero-bg {
   position: absolute;
-  top: 16px; left: 0; width: 1200px; height: 1040px; 
+  top: 16px; left: 0; width: 100%; height: 1040px; 
   background: url('img/hero-bg.jpg') center top no-repeat;
-  background-size: cover; 
+  background-size: cover; /* Изображение само закроет всю ширину без искажений */
 }
 
 .top-stripe-2 {
   position: absolute;
-  top: 1056px; left: 0; width: 1200px; height: 16px;
+  top: 1056px; left: 0; width: 100%; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .who-we-are-bg {
   position: absolute;
-  top: 1072px; left: 0; width: 1200px; height: 520px;
+  top: 1072px; left: 0; width: 100%; height: 520px;
   background-color: #ffa828; 
 }
 
 .top-stripe-3 {
   position: absolute;
-  top: 1592px; left: 0; width: 1200px; height: 16px;
+  top: 1592px; left: 0; width: 100%; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .turbodudes-bg {
   position: absolute;
-  top: 1608px; left: 0; width: 1200px; height: 520px;
+  top: 1608px; left: 0; width: 100%; height: 520px;
   background-color: #8428ff; 
 }
 
 .top-stripe-4 {
   position: absolute;
-  top: 2128px; left: 0; width: 1200px; height: 16px;
+  top: 2128px; left: 0; width: 100%; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .dorfs-bg {
   position: absolute;
-  top: 2144px; left: 0; width: 1200px; height: 520px;
+  top: 2144px; left: 0; width: 100%; height: 520px;
   background-color: #ff8428; 
 }
 
 .top-stripe-5 {
   position: absolute;
-  top: 2664px; left: 0; width: 1200px; height: 16px;
+  top: 2664px; left: 0; width: 100%; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .footer-bg {
   position: absolute;
-  top: 2680px; left: 0; width: 1200px; height: 160px;
+  top: 2680px; left: 0; width: 100%; height: 160px;
   background-color: #1f476a; 
 }
 
 
-/* ================= СЛОЙ КОНТЕНТА ================= */
+/* ================= СЛОЙ КОНТЕНТА (ОСТАЛСЯ 1200px) ================= */
 .content-layer {
   position: absolute;
   top: 0; left: 0; width: 1200px;
@@ -130,21 +131,40 @@ html, body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: left; 
 }
 
-.steam-btn {
+
+/* ================= КНОПКИ (Steam и Play) ================= */
+.steam-btn, .play-btn {
   position: absolute;
-  top: 914px; left: 50%; transform: translateX(-50%); z-index: 15; 
-  display: flex; align-items: center; justify-content: center; text-decoration: none; 
-  transition: transform 0.2s ease; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: block; 
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-decoration: none; 
+}
+
+.steam-btn { top: 914px; }
+.play-btn { top: 2011px; }
+
+.steam-btn:hover, .play-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.steam-btn img, .play-btn img {
+  display: block;
 }
 
 .btn-text {
   position: absolute;
-  font-size: 46px; color: #ffffff;
-  text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.3); margin-bottom: 14px;
-}
-
-.steam-btn:hover {
-  transform: translateX(-50%) scale(1.05);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%); 
+  font-size: 46px;
+  color: #ffffff;
+  text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.3);
+  pointer-events: none; 
+  white-space: nowrap;
 }
 
 
@@ -210,17 +230,6 @@ html, body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); text-align: left; 
 }
 
-.play-btn {
-  position: absolute;
-  top: 2011px; left: 50%; transform: translateX(-50%); z-index: 15; 
-  display: flex; align-items: center; justify-content: center; text-decoration: none; 
-  transition: transform 0.2s ease; 
-}
-
-.play-btn:hover {
-  transform: translateX(-50%) scale(1.05);
-}
-
 
 /* --- Элементы Dorf's Big Drop --- */
 .poster-dorfs {
@@ -269,10 +278,13 @@ html, body {
   position: absolute;
   top: 2709px;
   left: 991px;
-  z-index: 20;
+  z-index: 99999;
+  display: block;
+  cursor: pointer;
 }
 
 .footer-icon-steam img {
+  display: block;
   width: 66px;
   height: 65px;
   transition: opacity 0.2s;
@@ -286,10 +298,13 @@ html, body {
   position: absolute;
   top: 2716px;
   left: 1087px;
-  z-index: 20;
+  z-index: 99999;
+  display: block;
+  cursor: pointer;
 }
 
 .footer-icon-mail img {
+  display: block;
   width: 71px;
   height: 52px;
   transition: opacity 0.2s;

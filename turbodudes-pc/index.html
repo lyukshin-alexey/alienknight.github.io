@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alien Knight</title>
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ГЛОБАЛЬНЫЙ СКЕЙЛЕР ДЛЯ МОБИЛОК И ДЕСКТОПА -->
+  <!-- ГЛОБАЛЬНЫЙ КОНТЕЙНЕР -->
   <div class="page-scaler">
 
     <!-- СЛОЙ 1: ФОНЫ -->
@@ -48,11 +48,8 @@
           </p>
         </div>
 
-        <!-- Боевая ссылка на Steam -->
-        <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-btn">
-          <img src="img/btn-steam.png" alt="Wishlist on Steam">
-          <span class="btn-text">Steam</span>
-        </a>
+        <!-- Боевая ссылка на Steam (чистый блок с фоновой картинкой-кнопкой) -->
+        <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-btn">Steam</a>
 
 
         <!-- ================= ЭКРАН WHO WE ARE ================= -->
@@ -91,10 +88,7 @@
           </p>
         </div>
 
-        <a href="#" class="play-btn">
-          <img src="img/btn-steam.png" alt="Play Turbo Dudes">
-          <span class="btn-text">Play</span>
-        </a>
+        <a href="#" class="play-btn">Play</a>
 
 
         <!-- ================= ЭКРАН DORF'S BIG DROP ================= -->
@@ -130,26 +124,6 @@
     </div>
 
   </div>
-
-  <!-- АДАПТИВНЫЙ СКРИПТ МАСШТАБИРОВАНИЯ -->
-  <script>
-    function scalePage() {
-      const scaler = document.querySelector('.page-scaler');
-      const windowWidth = window.innerWidth;
-      const baseWidth = 1200;
-      
-      if (windowWidth < baseWidth) {
-        const scale = windowWidth / baseWidth;
-        scaler.style.transform = `scale(${scale})`;
-        scaler.style.height = `${2840 * scale}px`; // Пропорциональное уменьшение высоты всей страницы
-      } else {
-        scaler.style.transform = 'none';
-        scaler.style.height = '2840px';
-      }
-    }
-    window.addEventListener('resize', scalePage);
-    window.addEventListener('DOMContentLoaded', scalePage);
-  </script>
 
 </body>
 </html>
