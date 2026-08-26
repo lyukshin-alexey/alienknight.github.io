@@ -57,14 +57,14 @@
     </div>
     <script>
       var buildUrl = "Build";
-      // Сброс кэша оставляем ТОЛЬКО для самого загрузчика, чтобы он скачался свежим
+      // Сброс кэша оставляем ТОЛЬКО для загрузчика (браузер это понимает)
       var loaderUrl = buildUrl + "/turbodudes.loader.js?v=9"; 
       
-      // ВАЖНО: Никаких .unityweb и ?v=8 здесь! Unity сама всё подставит правильно.
+      // ВАЖНО: Точные пути с .unityweb, без всяких хвостиков кэша!
       var config = {
-        dataUrl: buildUrl + "/turbodudes.data",
-        frameworkUrl: buildUrl + "/turbodudes.framework.js",
-        codeUrl: buildUrl + "/turbodudes.wasm",
+        dataUrl: buildUrl + "/turbodudes.data.unityweb",
+        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb",
+        codeUrl: buildUrl + "/turbodudes.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Alien Knight",
         productName: "Turbo Dudes",
