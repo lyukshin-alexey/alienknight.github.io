@@ -12,9 +12,10 @@ html, body {
   padding: 0;
   background-color: #1f476a; 
   font-family: 'Russo One', sans-serif;
-  overflow-x: hidden; /* Скрываем возможный горизонтальный скролл */
+  overflow-x: hidden; /* Обрезаем края 1920-фонов на узких мониторах */
 }
 
+/* Главный контейнер (строго 1200px, по центру) */
 .page-scaler {
   position: relative;
   width: 1200px;
@@ -22,76 +23,75 @@ html, body {
   margin: 0 auto;
 }
 
-/* ================= СЛОЙ ФОНОВ (РАСТЯНУТЫЙ) ================= */
+/* ================= СЛОЙ ФОНОВ (ЖЕСТКО 1920px) ================= */
 .bg-layer {
   position: absolute;
   top: 0; 
   left: 50%;
-  transform: translateX(-50%); /* Центрируем растянутый слой относительно экрана */
-  width: 100vw; /* Растягиваем на всю ширину любого монитора (1920px и шире) */
-  min-width: 1200px; /* Для телефонов не даем фону ужаться меньше контента */
+  transform: translateX(-50%); /* Центрируем 1920px слой внутри 1200px контейнера */
+  width: 1920px; 
   z-index: 1;
 }
 
-/* Все фоны теперь 100% от ширины экрана */
+/* Все фоны теперь строго 1920px шириной */
 .top-stripe-1 {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 16px;
+  top: 0; left: 0; width: 1920px; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .hero-bg {
   position: absolute;
-  top: 16px; left: 0; width: 100%; height: 1040px; 
+  top: 16px; left: 0; width: 1920px; height: 1040px; 
   background: url('img/hero-bg.jpg') center top no-repeat;
-  background-size: cover; /* Изображение само закроет всю ширину без искажений */
+  /* Убрали background-size: cover, теперь картинка 1 к 1 */
 }
 
 .top-stripe-2 {
   position: absolute;
-  top: 1056px; left: 0; width: 100%; height: 16px;
+  top: 1056px; left: 0; width: 1920px; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .who-we-are-bg {
   position: absolute;
-  top: 1072px; left: 0; width: 100%; height: 520px;
+  top: 1072px; left: 0; width: 1920px; height: 520px;
   background-color: #ffa828; 
 }
 
 .top-stripe-3 {
   position: absolute;
-  top: 1592px; left: 0; width: 100%; height: 16px;
+  top: 1592px; left: 0; width: 1920px; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .turbodudes-bg {
   position: absolute;
-  top: 1608px; left: 0; width: 100%; height: 520px;
+  top: 1608px; left: 0; width: 1920px; height: 520px;
   background-color: #8428ff; 
 }
 
 .top-stripe-4 {
   position: absolute;
-  top: 2128px; left: 0; width: 100%; height: 16px;
+  top: 2128px; left: 0; width: 1920px; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .dorfs-bg {
   position: absolute;
-  top: 2144px; left: 0; width: 100%; height: 520px;
+  top: 2144px; left: 0; width: 1920px; height: 520px;
   background-color: #ff8428; 
 }
 
 .top-stripe-5 {
   position: absolute;
-  top: 2664px; left: 0; width: 100%; height: 16px;
+  top: 2664px; left: 0; width: 1920px; height: 16px;
   background: linear-gradient(to right, #1f476a, #457095, #1f476a);
 }
 
 .footer-bg {
   position: absolute;
-  top: 2680px; left: 0; width: 100%; height: 160px;
+  top: 2680px; left: 0; width: 1920px; height: 160px;
   background-color: #1f476a; 
 }
 
