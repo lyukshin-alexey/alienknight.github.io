@@ -1,115 +1,155 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Turbo Dudes - PC Version</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    
-    <style>
-      body, html {
-        padding: 0;
-        margin: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden; 
-        background-color: #2b2b2b; /* Аккуратный темно-серый фон для ПК */
-        display: flex; 
-        justify-content: center;
-        align-items: center;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Alien Knight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ГЛОБАЛЬНЫЙ СКЕЙЛЕР ДЛЯ МОБИЛОК И ДЕСКТОПА -->
+  <div class="page-scaler">
+
+    <!-- СЛОЙ 1: ФОНЫ -->
+    <div class="bg-layer">
+      <div class="top-stripe-1"></div>
+      <div class="hero-bg"></div>
       
-      #unity-container {
-        /* Умный размер: берем 95% от высоты окна браузера, чтобы не прилипать к краям */
-        height: 95vh; 
-        /* Жестко фиксируем пропорции твоей игры */
-        aspect-ratio: 1080 / 2400; 
-        position: relative;
-        background-color: #000;
-        box-shadow: 0 0 20px rgba(0,0,0,0.8); /* Красивая тень вокруг окна игры */
-      }
-      
-      #unity-canvas {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      
-      #unity-loading-bar {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      
-      #unity-footer { display: none !important; }
-    </style>
-  </head>
-  <body>
-    <div id="unity-container">
-      <canvas id="unity-canvas" tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
+      <div class="top-stripe-2"></div>
+      <div class="who-we-are-bg"></div>
+
+      <div class="top-stripe-3"></div>
+      <div class="turbodudes-bg"></div>
+
+      <div class="top-stripe-4"></div>
+      <div class="dorfs-bg"></div>
+
+      <div class="top-stripe-5"></div>
+      <div class="footer-bg"></div>
     </div>
-    <script>
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var warningBanner = document.querySelector("#unity-warning");
 
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
+    <!-- СЛОЙ 2: КОНТЕНТ -->
+    <div class="content-layer">
+      <div class="container">
+        
+        <!-- ================= ПЕРВЫЙ ЭКРАН ================= -->
+        <img src="img/logo-shield.png" alt="Alien Knight Logo" class="logo-shield">
+        
+        <div class="panel">
+          <p class="panel-text">
+            Juicy World is a bright and cheerful adventure game.<br>
+            You need to rescue shipwrecked rabbits from crowds<br>
+            of crazy mutant vegetables.<br>
+            Juicy World is still in development, and we are preparing<br>
+            for the October Steam festival.<br>
+            Wishlist the game now to catch all the juicy updates!
+          </p>
+        </div>
+
+        <!-- Боевая ссылка на Steam -->
+        <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="steam-btn">
+          <img src="img/btn-steam.png" alt="Wishlist on Steam">
+          <span class="btn-text">Steam</span>
+        </a>
+
+
+        <!-- ================= ЭКРАН WHO WE ARE ================= -->
+        <div class="section-title">Who We Are</div>
+
+        <div class="panel-orange">
+          <p class="panel-text-orange">
+            Alien Knight was founded<br>
+            by Luke Sheen (a carbon lifeform) — an artist who<br>
+            has been creating video games for almost 20 years,<br>
+            and Robert (a silicon lifeform) — an insufferable<br>
+            know-it-all who is always in a good mood.<br>
+            We are just starting our journey<br>
+            and are open to all forms of collaboration.
+          </p>
+        </div>
+
+        <img src="img/avatar-luke.png" class="avatar-luke" alt="Luke Sheen">
+        <img src="img/avatar-robert.png" class="avatar-robert" alt="Robert">
+
+
+        <!-- ================= ЭКРАН TURBO DUDES ================= -->
+        <div class="section-title-multiline">
+          A couple of our<br>other projects
+        </div>
+
+        <img src="img/poster-turbodudes.png" class="poster-turbodudes" alt="Turbo Dudes">
+
+        <div class="panel-purple">
+          <p class="panel-text-purple">
+            Turbo Dudes is a non-commercial mobile game<br>
+            made as a gift for our dear friend Antonio<br>
+            to celebrate his big birthday.<br>
+            You can play it right here by clicking<br>
+            any button that says "Play".
+          </p>
+        </div>
+
+        <a href="#" class="play-btn">
+          <img src="img/btn-steam.png" alt="Play Turbo Dudes">
+          <span class="btn-text">Play</span>
+        </a>
+
+
+        <!-- ================= ЭКРАН DORF'S BIG DROP ================= -->
+        <img src="img/poster-dorfs.png" class="poster-dorfs" alt="Dorf's Big Drop">
+
+        <div class="panel-dorfs">
+          <p class="panel-text-dorfs">
+            Dorf's Big Drop is a story about an unlucky dwarf<br>
+            who went looking for treasure and accidentally<br>
+            got caught in a quantum entanglement.<br>
+            The project is based on a very old concept<br>
+            that never made it to development back in the day.<br>
+            This time, the dwarf has every chance to shoot<br>
+            ghosts and skeletons in endless dungeons —<br>
+            just as soon as the rabbit saves all his friends<br>
+            from the mutant vegetables.
+          </p>
+        </div>
+
+
+        <!-- ================= ПОДВАЛ (FOOTER) ================= -->
+        <div class="footer-text">
+          &copy; 2026 Alien Knight.<br>
+          Made with love, pixels, and quantum entanglement<br>
+          Drop us a line: hello@alienknight.com
+        </div>
+
+        <!-- Боевые ссылки в подвале -->
+        <a href="https://store.steampowered.com/app/4945340/" target="_blank" class="footer-icon-steam"><img src="img/icon-steam.png" alt="Steam"></a>
+        <a href="mailto:hello@alienknight.com" class="footer-icon-mail"><img src="img/icon-mail.png" alt="Email"></a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- АДАПТИВНЫЙ СКРИПТ МАСШТАБИРОВАНИЯ -->
+  <script>
+    function scalePage() {
+      const scaler = document.querySelector('.page-scaler');
+      const windowWidth = window.innerWidth;
+      const baseWidth = 1200;
+      
+      if (windowWidth < baseWidth) {
+        const scale = windowWidth / baseWidth;
+        scaler.style.transform = `scale(${scale})`;
+        scaler.style.height = `${2840 * scale}px`; // Пропорциональное уменьшение высоты всей страницы
+      } else {
+        scaler.style.transform = 'none';
+        scaler.style.height = '2840px';
       }
+    }
+    window.addEventListener('resize', scalePage);
+    window.addEventListener('DOMContentLoaded', scalePage);
+  </script>
 
-      var buildUrl = "Build";
-      // Версия для обхода кэша (можешь менять при апдейтах)
-      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=pc_1";
-      var config = {
-        dataUrl: buildUrl + "/turbodudes.data.unityweb?v=pc_1",
-        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb?v=pc_1",
-        codeUrl: buildUrl + "/turbodudes.wasm.unityweb?v=pc_1",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Alien Knight",
-        productName: "Turbo Dudes",
-        productVersion: "1.0",
-        showBanner: unityShowBanner,
-      };
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-  </body>
+</body>
 </html>

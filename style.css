@@ -5,10 +5,14 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Убираем горизонтальный скролл на телефонах */
   background-color: #1f476a; 
   font-family: 'Russo One', sans-serif;
-  overflow-x: hidden; /* Убираем горизонтальный скролл на телефонах */
 }
 
 /* Обертка-скалер для мобильных и десктопа */
@@ -222,7 +226,7 @@ body {
 .poster-dorfs {
   position: absolute;
   top: 2128px; 
-  left: 40px;  
+  left: 37px;  
   width: 308px; height: 509px; 
   z-index: 20; 
 }
@@ -269,8 +273,8 @@ body {
 }
 
 .footer-icon-steam img {
-  width: 40px;
-  height: 40px;
+  width: 66px;
+  height: 65px;
   transition: opacity 0.2s;
 }
 
@@ -286,8 +290,8 @@ body {
 }
 
 .footer-icon-mail img {
-  width: 40px;
-  height: 40px;
+  width: 71px;
+  height: 52px;
   transition: opacity 0.2s;
 }
 
