@@ -11,7 +11,7 @@
         padding: 0;
         margin: 0;
         background-color: #121212;
-        overflow: hidden; /* Глушим любые полосы прокрутки */
+        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,14 +57,13 @@
     </div>
     <script>
       var buildUrl = "Build";
-      // Сброс кэша оставляем ТОЛЬКО для загрузчика (браузер это понимает)
-      var loaderUrl = buildUrl + "/turbodudes.loader.js?v=9"; 
+      var loaderUrl = buildUrl + "/turbodudes.loader.js"; 
       
-      // ВАЖНО: Точные пути с .unityweb, без всяких хвостиков кэша!
+      // Идеально чистые пути. Никаких .unityweb, никаких ?v=8! Загрузчик всё сделает сам.
       var config = {
-        dataUrl: buildUrl + "/turbodudes.data.unityweb",
-        frameworkUrl: buildUrl + "/turbodudes.framework.js.unityweb",
-        codeUrl: buildUrl + "/turbodudes.wasm.unityweb",
+        dataUrl: buildUrl + "/turbodudes.data",
+        frameworkUrl: buildUrl + "/turbodudes.framework.js",
+        codeUrl: buildUrl + "/turbodudes.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Alien Knight",
         productName: "Turbo Dudes",
