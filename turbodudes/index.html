@@ -6,31 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Turbo Dudes</title>
     <style>
-      /* ЖЕЛЕЗОБЕТОННЫЙ ФУНДАМЕНТ */
+      /* Базовый экран: черный фон, центрирование */
       html, body {
         padding: 0;
         margin: 0;
-        background-color: #121212;
+        background-color: #000000; /* Черный цвет для боковых полос */
         overflow: hidden;
-        
-        /* СЕКРЕТНОЕ ОРУЖИЕ: 
-           Прибиваем тело сайта строго к видимым краям экрана. 
-           Браузер больше не сможет растянуть его под адресную строку! */
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
+        height: 100vh;
       }
       
+      /* Используем реальную видимую высоту экрана, если браузер это умеет */
+      @supports (height: 100dvh) {
+        html, body {
+          height: 100dvh;
+        }
+      }
+      
+      /* ЕДИНАЯ математика пропорций (1080х2400) для любых устройств */
       #unity-container {
-        position: absolute;
-        /* Идеальное центрирование внутри зафиксированного body */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: relative;
+        /* Базово отталкиваемся от ширины */
+        width: 100vw;
+        height: calc(100vw * 2400 / 1080);
+        
+        /* НО жестко запрещаем вылезать за пределы высоты экрана! */
+        max-height: 100vh;
+        max-width: calc(100vh * 1080 / 2400);
+      }
+      
+      /* Те же лимиты, но для динамической высоты (dvh) */
+      @supports (height: 100dvh) {
+        #unity-container {
+          max-height: 100dvh;
+          max-width: calc(100dvh * 1080 / 2400);
+        }
       }
       
       #unity-canvas {
@@ -39,24 +52,10 @@
         display: block;
       }
 
-      /* ================= МОБИЛКА ================= */
-      @media (max-width: 767px) {
-        html, body {
-          background-color: #231F20;
-        }
-        #unity-container {
-          /* Теперь 100% берутся от реального видимого окна, а не мифического */
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      /* ================= ПК (РИЛТАЙМ СКЕЙЛ) ================= */
+      /* Возвращаем красивую тень только для ПК */
       @media (min-width: 768px) {
         #unity-container {
-          height: 100%; 
-          width: calc(100% * 1080 / 2400); 
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
         }
       }
     </style>
