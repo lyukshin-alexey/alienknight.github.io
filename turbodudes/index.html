@@ -6,44 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Turbo Dudes</title>
     <style>
-      /* Базовый экран: черный фон, центрирование */
+      /* Базовый фон окна браузера */
       html, body {
         padding: 0;
         margin: 0;
-        background-color: #000000; /* Черный цвет для боковых полос */
+        background-color: #000000;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
       }
       
-      /* Используем реальную видимую высоту экрана, если браузер это умеет */
       @supports (height: 100dvh) {
         html, body {
           height: 100dvh;
         }
       }
       
-      /* ЕДИНАЯ математика пропорций (1080х2400) для любых устройств */
       #unity-container {
         position: relative;
-        /* Базово отталкиваемся от ширины */
-        width: 100vw;
-        height: calc(100vw * 2400 / 1080);
-        
-        /* НО жестко запрещаем вылезать за пределы высоты экрана! */
-        max-height: 100vh;
-        max-width: calc(100vh * 1080 / 2400);
-      }
-      
-      /* Те же лимиты, но для динамической высоты (dvh) */
-      @supports (height: 100dvh) {
-        #unity-container {
-          max-height: 100dvh;
-          max-width: calc(100dvh * 1080 / 2400);
-        }
+        /* Убираем все max-width и max-height, чтобы не путать Unity */
       }
       
       #unity-canvas {
@@ -52,7 +36,35 @@
         display: block;
       }
 
-      /* Возвращаем красивую тень только для ПК */
+      /* ====================================================================== */
+      /* ПРАВИЛО 1: ДЛЯ ШИРОКИХ ЭКРАНОВ (ПК, планшеты, широкие телефоны)        */
+      /* Пропорция экрана шире, чем 9:20. Игра упирается в ВЫСОТУ экрана.       */
+      /* ====================================================================== */
+      @media (min-aspect-ratio: 9/20) {
+        #unity-container {
+          height: 100vh;
+          width: calc(100vh * 9 / 20);
+        }
+        @supports (height: 100dvh) {
+          #unity-container {
+            height: 100dvh;
+            width: calc(100dvh * 9 / 20);
+          }
+        }
+      }
+
+      /* ====================================================================== */
+      /* ПРАВИЛО 2: ДЛЯ ОЧЕНЬ УЗКИХ ЭКРАНОВ (Сверхвытянутые телефоны)         */
+      /* Пропорция экрана уже, чем 9:20. Игра упирается в ШИРИНУ экрана.        */
+      /* ====================================================================== */
+      @media (max-aspect-ratio: 9/20) {
+        #unity-container {
+          width: 100vw;
+          height: calc(100vw * 20 / 9);
+        }
+      }
+      
+      /* Возвращаем тень только для больших экранов */
       @media (min-width: 768px) {
         #unity-container {
           box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
@@ -68,6 +80,7 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/turbodudes.loader.js"; 
       
+      // Чистый конфиг, как мы настроили на предыдущем шаге
       var config = {
         dataUrl: buildUrl + "/turbodudes.data",
         frameworkUrl: buildUrl + "/turbodudes.framework.js",
