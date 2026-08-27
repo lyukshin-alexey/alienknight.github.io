@@ -3,19 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <!-- Запрет на зум, чтобы игра сидела как влитая -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Turbo Dudes</title>
     <style>
-      /* Общие настройки для обеих версий */
+      /* Общие настройки */
       body {
         padding: 0;
         margin: 0;
         background-color: #121212;
-        overflow: hidden;
+        overflow: hidden; 
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        height: 100dvh; /* Динамическая высота для обхода адресной строки */
         width: 100vw;
       }
       
@@ -29,7 +31,7 @@
         display: block;
       }
 
-      /* ================= МОБИЛКА (100% ЭКРАНА) ================= */
+      /* ================= МОБИЛКА ================= */
       @media (max-width: 767px) {
         body {
           background-color: #231F20;
@@ -37,10 +39,11 @@
         #unity-container {
           width: 100vw;
           height: 100vh;
+          height: 100dvh; /* Динамическая высота для телефона */
         }
       }
 
-      /* ================= ПК (РИЛТАЙМ СКЕЙЛ 1080x2400) ================= */
+      /* ================= ПК ================= */
       @media (min-width: 768px) {
         #unity-container {
           height: 100vh; 
@@ -59,7 +62,6 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/turbodudes.loader.js"; 
       
-      // Идеально чистые пути. Никаких .unityweb, никаких ?v=8! Загрузчик всё сделает сам.
       var config = {
         dataUrl: buildUrl + "/turbodudes.data",
         frameworkUrl: buildUrl + "/turbodudes.framework.js",
@@ -79,6 +81,7 @@
         createUnityInstance(canvas, config, (progress) => {
         }).then((unityInstance) => {
           console.log("Turbo Dudes loaded!");
+          // Костыль со звуком полностью удален
         }).catch((message) => {
           alert(message);
         });
